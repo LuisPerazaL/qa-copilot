@@ -1,0 +1,10 @@
+.env
+
+history.json
+
+*.csv
+*.xlsx
+
+__pycache__/
+venv/
+.venv/
