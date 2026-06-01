@@ -5,7 +5,7 @@ from test_case import TestCase
 from demo_data import get_demo_test_cases
 
 
-def generate_test_cases(requirement_id, user_story, demo_mode=False):
+def generate_test_cases(requirement_id, user_story, demo_mode=False, **kwargs):
     api_key = os.environ.get("GOOGLE_API_KEY")
 
     if demo_mode or not api_key:
