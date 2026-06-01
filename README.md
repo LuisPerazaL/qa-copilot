@@ -134,4 +134,4 @@ QA Copilot generates structured test cases covering positive, negative, security
 
 Luis Peraza
 
-Final project developed during Stanford Code in Place.
+Final project developed during Stanford Code in Place 2026 under the guidance of Section Leader Sumaiya Islam.
