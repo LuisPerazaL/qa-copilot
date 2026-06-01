@@ -1,82 +1,82 @@
 # QA Copilot 🤖
 
-An AI-driven QA aid for creating well-organized test cases from software needs and user narratives.
+QA Copilot is an AI-powered assistant that helps QA Engineers generate structured test cases from software requirements and user stories.
 
-Developed using Python and Streamlit, QA Copilot empowers QA Engineers to speed up test plan creation. it makes structured test cases based on testing methods inspired by ISTQB.
+Built with Python and Streamlit, the application accelerates test design by creating comprehensive test scenarios inspired by ISTQB testing techniques.
 
-## Capabilities
+## Features
 
-Test cases generation from specifications and user narratives.
-Comprehends:
+* Generate test cases from requirements and user stories
+* Supports:
 
-Functional Testing
-Negative Testing
-Boundary Testing
-Security Testing
-Performance Testing
-Data Validation
-Results export to CSV is provided.
-Results can be exported to Excel too.
-Tracking of test case historical data.
-A Streamlit web interface is available.
-Support for a demo mode.
+  * Functional Testing
+  * Negative Testing
+  * Boundary Testing
+  * Security Testing
+  * Performance Testing
+  * Data Validation
+* Export results to CSV
+* Export results to Excel
+* Test case history tracking
+* Streamlit-based web interface
+* Demo Mode support
 
-## Technology Core
+## Tech Stack
 
-Python
-Streamlit
-Pandas
-OpenPyXL
-An AI Provider (Gemini DeepSeek or a similar LLM)
+* Python
+* Streamlit
+* Pandas
+* OpenPyXL
+* AI Provider (Gemini, DeepSeek, or compatible LLM)
 
-## Setup
+## Installation
 
-Copy the repository:
+Clone the repository:
 
 ```bash
-git clone https://github. com/LuisPerazaL/qa-copilot. git
+git clone https://github.com/LuisPerazaL/qa-copilot.git
 cd qa-copilot
 ```
 
-Make and activate a virtual space:
+Create and activate a virtual environment:
 
 ```bash
-python -m venv . venv
+python -m venv .venv
 ```
 
-For Windows systems:
+Windows:
 
 ```bash
-. venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
-Install the required libraries:
+Install dependencies:
 
 ```bash
-pip install -r requirements. txt
+pip install -r requirements.txt
 ```
 
-## Executing the Program
+## Run the Application
 
 ```bash
-streamlit run App. py
+streamlit run App.py
 ```
 
-Alternatively you can use:
+or
 
 ```bash
-python -m streamlit run App. py
+python -m streamlit run App.py
 ```
 
-The app you will find at:
+The application will be available at:
 
 ```text
 http://localhost:8501
 ```
 
-## Demo Operation
+## Demo Mode
 
-If an AI source is out of reach or its credits are all used up QA Copilot can operate in Demo Mode. Forcing Demo Mode:
+If an AI provider is unavailable or API credits have been exhausted, QA Copilot can run in Demo Mode.
 
 Windows:
 
@@ -84,58 +84,54 @@ Windows:
 set QA_COPILOT_DEMO=1
 ```
 
-Linux or macOS systems:
+Linux / macOS:
 
 ```bash
 export QA_COPILOT_DEMO=1
 ```
 
-Next launch the application as usual.
+Then run the application normally.
 
-```bash
-streamlit run App. py
-```
+## Environment Variables
 
-## Environment Variables Setting
-
-Such as:
+Example:
 
 ```bash
 DEEPSEEK_API_KEY=your_api_key
 ```
 
-Or perhaps:
+or
 
 ```bash
 GOOGLE_API_KEY=your_api_key
 ```
 
-## A User Story Example
+## Example User Story
 
-Requirement ID's name:
+Requirement ID:
 
 ```text
 BANK-TRF-001
 ```
 
-User Story presented:
+User Story:
 
 ```text
 As a banking customer, I want to transfer money to third-party accounts so that I can send funds securely and efficiently.
 ```
 
-QA Copilot its self will create organized test cases with positive, negative, security, boundary and performance situations.
+QA Copilot generates structured test cases covering positive, negative, security, boundary, and performance scenarios.
 
-## Upcoming Enhancements
+## Future Enhancements
 
-Gherkin or BDD framework assistance
-Playwright test creation abilities
-Risk factor based test sequencing
-Identifying unclear requirements
-Generating API test instances
+* Gherkin / BDD support
+* Playwright test generation
+* Risk-based test prioritization
+* Requirement ambiguity detection
+* API test case generation
 
-## Creator
+## Author
 
 Luis Peraza
 
-This final project was made during Stanford Course at SL Sumaiya Islam.
+Final project developed during Stanford Code in Place.
