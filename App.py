@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import io
@@ -8,6 +9,8 @@ from demo_data import get_demo_test_cases
 
 from generator import generate_test_cases
 from history import save_to_history, load_history, load_from_history
+
+DEMO_MODE = os.environ.get("QA_COPILOT_DEMO", "0").lower() in ("1", "true", "yes")
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -134,15 +137,22 @@ with col1:
     req_id     = st.text_input("Requirement ID", placeholder="e.g. FB-00312")
     user_story = st.text_area("User Story", height=220,
                               placeholder="As a user, I want to...")
+    use_demo   = st.checkbox(
+        "🔧 Use demo mode (no Gemini API key required)",
+        value=DEMO_MODE or not os.environ.get("GOOGLE_API_KEY")
+    )
     generate   = st.button("⚡ Generate Test Cases", use_container_width=True, type="primary")
 
 if generate:
     if not req_id or not user_story:
         st.warning("Please fill in both fields.")
     else:
+        if use_demo:
+            st.warning("⚠️ Running in demo mode: Gemini is not used.")
+
         with st.spinner("Generating test cases, please be patient..."):
             try:
-                tcs = generate_test_cases(req_id, user_story)
+                tcs = generate_test_cases(req_id, user_story, demo_mode=use_demo)
 
             except Exception as e:
 
@@ -156,7 +166,7 @@ if generate:
                         "⚠️ AI provider unavailable. Running in Demo Mode."
                     )
 
-                    tcs = get_demo_test_cases()
+                    tcs = get_demo_test_cases(user_story)
 
                 else:
                     st.error(f"Error: {e}")

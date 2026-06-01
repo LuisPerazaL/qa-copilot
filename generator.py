@@ -2,12 +2,17 @@ import os
 import json
 from google import genai
 from test_case import TestCase
+from demo_data import get_demo_test_cases
 
 
-def generate_test_cases(requirement_id, user_story):
+def generate_test_cases(requirement_id, user_story, demo_mode=False):
+    api_key = os.environ.get("GOOGLE_API_KEY")
+
+    if demo_mode or not api_key:
+        return get_demo_test_cases(user_story)
 
     client = genai.Client(
-        api_key=os.environ.get("GOOGLE_API_KEY")
+        api_key=api_key
     )
 
     prompt = f"""You are a Senior QA Engineer with strong ISTQB knowledge.
@@ -38,6 +43,8 @@ Return ONLY a valid JSON object with the following structure:
 
 Rules:
 
+- Generate a comprehensive test suite of approximately 100 distinct test cases whenever the requirement supports it.
+- When the user story references business domains such as finance, banking, payments, loans, insurance, or commerce, organize the test cases into domain-relevant groups and ensure coverage across those business areas.
 - Generate ALL relevant test cases required to achieve adequate test coverage.
 - Do not limit the number of test cases.
 - Cover the following test design techniques whenever applicable:
