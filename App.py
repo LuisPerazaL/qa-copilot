@@ -4,6 +4,7 @@ import io
 import re
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from demo_data import get_demo_test_cases
 
 from generator import generate_test_cases
 from history import save_to_history, load_history, load_from_history
@@ -142,12 +143,29 @@ if generate:
         with st.spinner("Generating test cases, please be patient..."):
             try:
                 tcs = generate_test_cases(req_id, user_story)
-                st.session_state.test_cases  = tcs
-                st.session_state.current_req = req_id
-                save_to_history(req_id, user_story, tcs)
-                st.rerun()
+
             except Exception as e:
-                st.error(f"Error: {e}")
+
+                if (
+                    "Insufficient Balance" in str(e)
+                    or
+                    "API key" in str(e)
+                ):
+
+                    st.warning(
+                        "⚠️ AI provider unavailable. Running in Demo Mode."
+                    )
+
+                    tcs = get_demo_test_cases()
+
+                else:
+                    st.error(f"Error: {e}")
+                    st.stop()
+
+            st.session_state.test_cases = tcs
+            st.session_state.current_req = req_id
+            save_to_history(req_id, user_story, tcs)
+            st.rerun()
 
 # ── Results ───────────────────────────────────────────────────────────────────
 if "test_cases" in st.session_state and st.session_state.test_cases:
