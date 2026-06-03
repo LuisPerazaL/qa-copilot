@@ -2,6 +2,13 @@
 
 QA Copilot is an AI-powered assistant that helps QA Engineers generate structured test cases from software requirements and user stories.
 
+<img width="1906" height="921" alt="image" src="https://github.com/user-attachments/assets/36a54e65-02fa-49dc-9a15-12349e54e9f1" />
+<img width="1915" height="948" alt="image" src="https://github.com/user-attachments/assets/0d8cc625-cfd3-4dc1-a2fe-19d7e716306b" />
+<img width="1915" height="952" alt="image" src="https://github.com/user-attachments/assets/97ccfd20-d596-46c8-aa90-4d34e11b0357" />
+
+
+
+
 Built with Python and Streamlit, the application accelerates test design by creating comprehensive test scenarios inspired by ISTQB testing techniques.
 
 ## Features
