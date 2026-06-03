@@ -43,7 +43,7 @@ Return ONLY a valid JSON object with the following structure:
 
 Rules:
 
-- Generate 20-30 high-quality test cases using risk-based testing principles. Prioritize critical business flows, validations, boundary conditions, negative scenarios, and security considerations.
+- Generate high-quality test cases using risk-based testing principles. Prioritize critical business flows, validations, boundary conditions, negative scenarios, and security considerations.
 - When the user story references business domains such as finance, banking, payments, loans, insurance, or commerce, organize the test cases into domain-relevant groups and ensure coverage across those business areas.
 - Generate ALL relevant test cases required to achieve adequate test coverage.
 - Do not limit the number of test cases.
